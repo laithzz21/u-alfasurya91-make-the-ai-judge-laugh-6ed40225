@@ -18,13 +18,13 @@ It opens on the most overused line in office life — "we're a family here" — 
 
 ## What this does
 
-`main.py` (Python 3, stdlib only, deterministic — no network, clock, or randomness) validates the entry against every rule in the brief (one line, under 200 characters, plays on office life, contains a surprising turn) and prints it to stdout. It also writes it to `entry.txt` in the output directory (`$MAKEFUN_OUTPUT` if set, otherwise a per-entry `output` directory next to the script).
+`main.py` (Python 3, stdlib only, deterministic — no network, clock, or randomness) validates the entry against every rule in the brief (one line, under 200 characters, plays on office life, contains a surprising turn) and prints it to stdout. It also writes it to `entry.txt` in the output directory named by `$MAKEFUN_OUTPUT_DIR` or `$MAKEFUN_OUTPUT` when either is set, otherwise a per-entry directory under `/tmp`. It never writes into the repository directory, so it runs cleanly from a read-only checkout.
 
 ## How to run
 
 ```sh
 python3 main.py
-# prints the entry, writes entry.txt to ./output
+# prints the entry, writes entry.txt to /tmp/sweep28-u-alfasurya91-make-the-ai-judge-laugh-6ed40225/
 ```
 
 Or with a custom output directory:
